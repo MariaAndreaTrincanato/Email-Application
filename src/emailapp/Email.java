@@ -36,13 +36,13 @@ public class Email {
 	//TODO: Ask for department
 	private String setDepartment() {
 		System.out.print("New worker: "+firstName+"DEPARTMENT CODES:\n \n1 for Sales\n2 for Development\n3 for Accounting\n0 for none \n \nEnter the department code:");
-		Scanner in = new Scanner(System.in);
-		int depChoice = in.nextInt();
-		
-		if(depChoice == 1) { return "sales";}
-		else if (depChoice == 2) { return "dev";}
-		else if (depChoice == 3) { return "acct";}
-		else { return "";}
+		try(Scanner in = new Scanner(System.in)){
+			int depChoice = in.nextInt();
+			if(depChoice == 1) { return "sales";}
+			else if (depChoice == 2) { return "dev";}
+			else if (depChoice == 3) { return "acct";}
+			else { return "";}
+		}
 	}
 	
 	//TODO: Generate random password
